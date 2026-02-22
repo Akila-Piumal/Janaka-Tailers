@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const serviceOptions = [
   "Custom Suits",
@@ -27,9 +28,43 @@ const AppointmentSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) setSubmitted(true);
+    if (!validate()) return;
+
+    try {
+      const templateParams = {
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        service: form.service,
+        date: form.date,
+        time: form.time,
+        message: form.message,
+      };
+  
+      // 1️⃣ Send to shop
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_SHOP_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      );
+  
+      // 2️⃣ Send confirmation to customer
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_CUSTOMER_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      );
+  
+      setSubmitted(true);
+  
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   const inputClass =
