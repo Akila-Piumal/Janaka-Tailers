@@ -1,27 +1,31 @@
 import { useState } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import gallerySuit from "@/assets/gallery-suit-1.jpg";
-import galleryWedding from "@/assets/gallery-wedding.jpg";
+import gallerySuit from "@/assets/gallery-suit-1.png";
+import galleryWedding1 from "@/assets/gallery-wedding-1.jpg";
+import galleryWedding2 from "@/assets/gallery-wedding-2.jpg";
+import galleryWedding3 from "@/assets/gallery-wedding-3.jpg";
+import galleryWedding4 from "@/assets/gallery-wedding-4.jpg";
+import galleryWedding5 from "@/assets/gallery-wedding-5.jpg";
+import galleryWedding6 from "@/assets/gallery-wedding-6.jpg";
+import galleryWedding7 from "@/assets/gallery-wedding-7.jpg";
+import galleryWedding8 from "@/assets/gallery-wedding-8.jpg";
 import galleryShirts from "@/assets/gallery-shirts.jpg";
-import gallerySaree from "@/assets/gallery-saree.jpg";
-import galleryFitting from "@/assets/gallery-fitting.jpg";
 import galleryUniforms from "@/assets/gallery-uniforms.jpg";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const images = [
   { src: gallerySuit, alt: "Custom navy suit", label: "Custom Suits" },
-  { src: galleryWedding, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding1, alt: "Wedding suit", label: "Wedding Wear" },
   { src: galleryShirts, alt: "Premium shirts", label: "Shirts" },
-  { src: gallerySaree, alt: "Saree blouse design", label: "Saree Blouse" },
-  { src: galleryFitting, alt: "Suit fitting", label: "Fitting" },
+  { src: galleryWedding2, alt: "Wedding suit", label: "Wedding Wear" },
   { src: galleryUniforms, alt: "Uniforms", label: "Uniforms" },
-  { src: gallerySuit, alt: "Bespoke tailoring", label: "Bespoke" },
-  { src: galleryWedding, alt: "Ceremony attire", label: "Ceremony" },
-  { src: galleryShirts, alt: "Formal shirts", label: "Formal Wear" },
-  { src: gallerySaree, alt: "Designer blouse", label: "Designer Blouse" },
-  { src: galleryFitting, alt: "Personal fitting", label: "Personal Fitting" },
-  { src: galleryUniforms, alt: "Corporate uniforms", label: "Corporate Wear" },
+  { src: galleryWedding3, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding4, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding5, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding6, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding7, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding8, alt: "Wedding suit", label: "Wedding Wear" },
 ];
 
 const Gallery = () => {

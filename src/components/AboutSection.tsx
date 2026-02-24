@@ -29,8 +29,8 @@ const AboutSection = () => (
 
           <div className="grid grid-cols-3 gap-4">
             {[
-              { icon: Clock, label: "30+ Years", sub: "Experience" },
-              { icon: Award, label: "5000+", sub: "Happy Clients" },
+              { icon: Clock, label: "15+ Years", sub: "Experience" },
+              { icon: Award, label: "1000+", sub: "Happy Clients" },
               { icon: Heart, label: "100%", sub: "Handcrafted" },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="text-center p-4 glass-card rounded-lg">

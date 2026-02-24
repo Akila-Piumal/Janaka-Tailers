@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
-import gallerySuit from "@/assets/gallery-suit-1.jpg";
-import galleryWedding from "@/assets/gallery-wedding.jpg";
+import gallerySuit from "@/assets/gallery-suit-1.png";
+import galleryWedding1 from "@/assets/gallery-wedding-1.jpg";
 import galleryShirts from "@/assets/gallery-shirts.jpg";
-import gallerySaree from "@/assets/gallery-saree.jpg";
-import galleryFitting from "@/assets/gallery-fitting.jpg";
+import galleryWedding2 from "@/assets/gallery-wedding-2.jpg";
 import galleryUniforms from "@/assets/gallery-uniforms.jpg";
+import ourPlace from "@/assets/our-place.jpg";
 
 const images = [
   { src: gallerySuit, alt: "Custom navy suit", label: "Custom Suits" },
-  { src: galleryWedding, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: galleryWedding1, alt: "Wedding suit", label: "Wedding Wear" },
   { src: galleryShirts, alt: "Premium shirts", label: "Shirts" },
-  { src: gallerySaree, alt: "Saree blouse design", label: "Saree Blouse" },
-  { src: galleryFitting, alt: "Suit fitting", label: "Fitting" },
+  { src: galleryWedding2, alt: "Wedding suit", label: "Wedding Wear" },
+  { src: ourPlace, alt: "Our Place", label: "Our Place" },
   { src: galleryUniforms, alt: "Uniforms", label: "Uniforms" },
 ];
 
