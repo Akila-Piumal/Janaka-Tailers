@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 const serviceOptions = [
   "Custom Suits",
@@ -73,7 +74,12 @@ const AppointmentSection = () => {
   if (submitted) {
     return (
       <section id="appointment" className="section-padding bg-secondary/30">
-        <div className="container mx-auto max-w-lg text-center">
+        <motion.div
+          className="container mx-auto max-w-lg text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <CheckCircle className="mx-auto text-primary mb-6" size={64} />
           <h2 className="font-serif text-3xl font-bold mb-4">Thank You!</h2>
           <p className="text-cream-dark">
@@ -85,7 +91,7 @@ const AppointmentSection = () => {
           >
             Book Another
           </button>
-        </div>
+        </motion.div>
       </section>
     );
   }
@@ -93,13 +99,26 @@ const AppointmentSection = () => {
   return (
     <section id="appointment" className="section-padding bg-secondary/30">
       <div className="container mx-auto max-w-2xl">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-primary tracking-[0.2em] uppercase text-sm font-medium mb-3">Schedule a Visit</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold">
             Book an <span className="gold-text-gradient">Appointment</span>
           </h2>
-        </div>
-        <form onSubmit={handleSubmit} className="glass-card rounded-lg p-8 space-y-5">
+        </motion.div>
+        <motion.form
+          onSubmit={handleSubmit}
+          className="glass-card rounded-lg p-8 space-y-5"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <input name="name" placeholder="Full Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} maxLength={100} />
@@ -130,7 +149,7 @@ const AppointmentSection = () => {
           <button type="submit" className="w-full gold-gradient text-primary-foreground py-4 rounded-sm text-sm font-semibold tracking-wider uppercase hover:opacity-90 transition-opacity">
             Submit Appointment
           </button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

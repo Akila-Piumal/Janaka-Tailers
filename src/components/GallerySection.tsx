@@ -7,6 +7,7 @@ import galleryShirts from "@/assets/gallery-shirts.jpg";
 import galleryWedding2 from "@/assets/gallery-wedding-2.jpg";
 import galleryUniforms from "@/assets/gallery-uniforms.jpg";
 import ourPlace from "@/assets/our-place.jpg";
+import { motion } from "framer-motion";
 
 const images = [
   { src: gallerySuit, alt: "Custom navy suit", label: "Custom Suits" },
@@ -23,18 +24,28 @@ const GallerySection = () => {
   return (
     <section id="gallery" className="section-padding">
       <div className="container mx-auto">
-        <div className="text-center mb-14">
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-primary tracking-[0.2em] uppercase text-sm font-medium mb-3">Our Work</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold">
             The <span className="gold-text-gradient">Gallery</span>
           </h2>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {images.map((img, i) => (
-            <button
+            <motion.button
               key={i}
               onClick={() => setLightbox(i)}
               className="group relative overflow-hidden rounded-lg aspect-[4/5] cursor-pointer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
             >
               <img
                 src={img.src}
@@ -46,17 +57,23 @@ const GallerySection = () => {
                   {img.label}
                 </span>
               </div>
-            </button>
+            </motion.button>
           ))}
         </div>
-        <div className="text-center mt-10">
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <Link
             to="/gallery"
             className="inline-block gold-gradient text-primary-foreground px-8 py-3 rounded-sm text-sm font-semibold tracking-wider uppercase hover:opacity-90 transition-opacity"
           >
             View More
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* Lightbox */}

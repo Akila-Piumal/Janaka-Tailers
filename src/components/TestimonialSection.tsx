@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -22,17 +23,27 @@ const testimonials = [
 const TestimonialSection = () => (
   <section className="section-padding bg-secondary/30">
     <div className="container mx-auto">
-      <div className="text-center mb-12">
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
+      >
         <p className="text-primary tracking-[0.2em] uppercase text-sm font-medium mb-3">Testimonials</p>
         <h2 className="font-serif text-3xl md:text-4xl font-bold">
           What Our <span className="gold-text-gradient">Clients</span> Say
         </h2>
-      </div>
+      </motion.div>
       <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {testimonials.map((t, i) => (
-          <div
+          <motion.div
             key={i}
             className="glass-card rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.15 }}
           >
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, j) => (
@@ -44,7 +55,7 @@ const TestimonialSection = () => (
               <p className="font-semibold text-foreground text-sm">{t.name}</p>
               <p className="text-muted-foreground text-xs">{t.role}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
